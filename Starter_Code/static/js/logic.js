@@ -1,5 +1,5 @@
 // Initialize the map centered around the United States
-var map = L.map('map').setView([37.1, -95.7], 4); // Centered on the continental US
+var map = L.map('map').setView([80, -150], 6); // Centered on the continental US
 
 // Add a tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -19,7 +19,7 @@ fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojso
                 var radius = magnitude * 3; // Adjust size as needed
                 var color;
 
-                // Adjust color based on depth intervals
+                    // Adjust color based on depth intervals
             if (depth <= 10) {
                 color = 'green';
             } else if (depth <= 30) {
@@ -59,17 +59,13 @@ fetch("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojso
         var legend = L.control({ position: 'bottomright' });
         legend.onAdd = function () {
             var div = L.DomUtil.create('div', 'legend');
-            div.style.backgroundColor = 'white'; // Set background color to white
-            div.style.padding = '10px'; // Add some padding
-            div.style.borderRadius = '5px'; // Optional: add rounded corners
-        div.innerHTML += '<strong>Depth (km)</strong><br>';
-        div.innerHTML += '<i style="background: green; width: 20px; height: 20px; display: inline-block;"></i> -10-10<br>';
-        div.innerHTML += '<i style="background: limegreen; width: 20px; height: 20px; display: inline-block;"></i> 10-30<br>';
-        div.innerHTML += '<i style="background: #FFA07A; width: 20px; height: 20px; display: inline-block;"></i> 30-50<br>'; // Light orange
-        div.innerHTML += '<i style="background: orange; width: 20px; height: 20px; display: inline-block;"></i> 50-70<br>';
-        div.innerHTML += '<i style="background: #FFDAB9; width: 20px; height: 20px; display: inline-block;"></i> 70-90<br>'; // Peach
-        div.innerHTML += '<i style="background: red; width: 20px; height: 20px; display: inline-block;"></i> >90+<br>';
-        return div;
+            div.innerHTML += '<strong>Depth (km)</strong><br>';
+            div.innerHTML += '<i style="background: green"></i> -10-10<br>';
+            div.innerHTML += '<i style="background: lime"></i> 10-30<br>';
+            div.innerHTML += '<i style="background: yellow"></i> 30-50<br>';
+            div.innerHTML += '<i style="background: orange"></i> 50-70<br>';
+            div.innerHTML += '<i style="background: red"></i> > 70+<br>';
+            return div;
         };
         legend.addTo(map);
     })
