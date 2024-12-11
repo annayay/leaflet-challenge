@@ -1,5 +1,5 @@
 // Initialize the map centered around the United States
-var map = L.map('map').setView([37.1, -95.7], 4); // Centered on the continental US
+var map = L.map('map').setView([50, -120], 4); // Centered on the continental US
 
 // Add a tile layer
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
